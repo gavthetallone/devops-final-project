@@ -53,6 +53,8 @@ Test Plans:
 
 ### CICD Pipeline Diagram
 
+![Pipeline Diagram](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/servicesv1.0.png)
+
 ### Components in Detail
 
 #### Docker
