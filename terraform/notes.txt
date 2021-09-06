@@ -1,0 +1,5 @@
+1 vm for jump box
+1 vnet
+1 subnet for jump box
+1 subnet for jenkins
+1 subnet for aks cluster
