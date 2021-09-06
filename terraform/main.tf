@@ -30,3 +30,10 @@ module "vm" {
     location     = var.location
     interface_ids = [module.vnet.interface_id]
 }
+
+module "cluster" {
+    source       = "./cluster"
+    project_name = var.project_name
+    group_name   = azurerm_resource_group.main.name
+    location     = var.location
+}
