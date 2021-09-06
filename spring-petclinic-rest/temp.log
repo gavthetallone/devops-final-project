@@ -1,0 +1,62 @@
+<!doctype html>
+<!--
+This file is almost the same as context.html - loads all source files,
+but its purpose is to be loaded in the main frame (not within an iframe),
+just for immediate execution, without reporting to Karma server.
+-->
+<html>
+
+<head>
+  <title>Karma DEBUG RUNNER</title>
+  <link href="favicon.ico" rel="icon" type="image/x-icon" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+
+<body>
+  <!-- The scripts need to be at the end of body, so that some test running frameworks
+   (Angular Scenario, for example) need the body to be loaded so that it can insert its magic
+   into it. If it is before body, then it fails to find the body and crashes and burns in an epic
+   manner. -->
+  <script src="context.js"></script>
+  <script src="debug.js"></script>
+  <script type="text/javascript">
+    // Configure our Karma
+    window.__karma__.config = {"args":[],"useIframe":true,"runInParent":false,"captureConsole":true,"clearContext":false};
+
+
+    // All served files with the latest timestamps
+    window.__karma__.files = {
+  '/base/node_modules/source-map-support/browser-source-map-support.js': 'd5ed9cabce4cb9162440415eea7e8484e51d1aea',
+  '/base/node_modules/karma-source-map-support/lib/client.js': 'fcb459e84379f1ce8e91fe200d87463f3780ca1b',
+  '/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js': '73bc53d3671677e6a093fc74e4f9bcde57e5f7ad',
+  '/base/node_modules/karma-jasmine/lib/boot.js': '945a38bf4e45ad2770eb94868231905a04a0bd3e',
+  '/base/node_modules/karma-jasmine/lib/adapter.js': '6cf71867f538f40db053c1775b2c56a83696375c',
+  '/base/node_modules/karma-jasmine-html-reporter/src/css/jasmine.css': 'c9871b8538297ee2479a3223e4b1c8afaa94e162',
+  '/base/node_modules/karma-jasmine-html-reporter/src/lib/html.jasmine.reporter.js': '4af523ab7bfaa86c4966fa332c4dc2bd2278b4cc',
+  '/base/node_modules/karma-jasmine-html-reporter/src/lib/adapter.js': '9d2c71b931979c6194d209809111ee3a72cf149b'
+};
+
+  </script>
+  <script src="_karma_webpack_/runtime.js" crossorigin="anonymous"></script>
+  <script src="_karma_webpack_/polyfills-es5.js" crossorigin="anonymous" nomodule></script>
+  <script src="_karma_webpack_/polyfills.js" crossorigin="anonymous"></script>
+  <!-- Dynamically replaced with <script> tags -->
+  <script type="text/javascript" src="/base/node_modules/source-map-support/browser-source-map-support.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/node_modules/karma-source-map-support/lib/client.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/node_modules/karma-jasmine/lib/boot.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/node_modules/karma-jasmine/lib/adapter.js" crossorigin="anonymous"></script>
+<link type="text/css" href="/base/node_modules/karma-jasmine-html-reporter/src/css/jasmine.css" rel="stylesheet">
+<script type="text/javascript" src="/base/node_modules/karma-jasmine-html-reporter/src/lib/html.jasmine.reporter.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/base/node_modules/karma-jasmine-html-reporter/src/lib/adapter.js" crossorigin="anonymous"></script>
+  <script src="_karma_webpack_/styles.js" crossorigin="anonymous"></script>
+  <script src="_karma_webpack_/scripts.js" crossorigin="anonymous"></script>
+  <script src="_karma_webpack_/vendor.js" crossorigin="anonymous"></script>
+  <script src="_karma_webpack_/main.js" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+      window.__karma__.loaded();
+  </script>
+</body>
+
+</html>
