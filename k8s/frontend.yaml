@@ -20,6 +20,6 @@ metadata:
 spec:
   containers:
   - name: frontend
-    image: spring-petclinic-angular:latest
+    image: callistoreg.azurecr.io/spring-petclinic-angular:latest
     ports:
     - containerPort: 8080
