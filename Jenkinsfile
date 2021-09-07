@@ -8,8 +8,8 @@ pipeline{
                 sh '''
                     
                     DIRECTORY=usr/local/bin/terraform
-                    if ! [ -d "$DIRECTORY" ;] then \
-                    bash ./scripts/terraform-install.sh
+                    if ! [ -d "$DIRECTORY" ]; then \
+                    bash ./scripts/terraform-install.sh;fi
                     '''
             }
         }
