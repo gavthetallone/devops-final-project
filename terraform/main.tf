@@ -24,7 +24,7 @@ module "vnet" {
 }
 
 module "vm" {
-    source       = "./network"
+    source       = "./vm"
     project_name = var.project_name
     group_name   = azurerm_resource_group.main.name
     location     = var.location
