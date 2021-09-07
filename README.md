@@ -1,5 +1,4 @@
 # devops-final-project
-# devops-final-project
 
 ## Planning
 
@@ -23,19 +22,19 @@ What tools will work for you best? For example: Terraform, Kubernetes, Ansible e
 ### Project Requirements
 
 Project Requirements:  
-![Project-Requirements](https://qa-courseware-images.s3.eu-west-2.amazonaws.com/markdown/links_images/000.jpeg)
+![Project-Requirements](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/project%20requirements.jpg)
 
 Using Jira we were able to split up all the Issues into smaller workable steps which we slipt up evenly.
 
 ### Risk Assessment
 
 Risk Assessment:  
-![Risk Assessment](https://qa-courseware-images.s3.eu-west-2.amazonaws.com/markdown/links_images/000.jpeg)
+![Risk Assessment]()
 
 ### Test Plans
 
 Test Plans:  
-![Test Plans](https://qa-courseware-images.s3.eu-west-2.amazonaws.com/markdown/links_images/000.jpeg)
+![Test Plans]()
 
 ## Continous Deployment and Intergration
 
@@ -53,7 +52,14 @@ Test Plans:
 
 ### CICD Pipeline Diagram
 
-![Pipeline Diagram](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/servicesv1.0.png)
+![Pipeline Diagram]()
+
+### Infrastructure Diagram
+
+![Initial Infrastructure](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/infrastructurev1.0.png)
+
+![Final Infrastructure](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/servicesv1.0.png)
+
 
 ### Components in Detail
 
@@ -61,17 +67,20 @@ Test Plans:
 Docker is a software platform for building applications based on containers and lightweight execution environments that make shared use of the operating system kernel but otherwise run in isolation from one another.
 
 #### Terraform
+Terraform is an infrastructure as code (IaC) tool that allows you to build, change, and version infrastructure safely and efficiently. 
 
 #### Kubernetes
+Kubernetes is an open-source orchestration software for deploying, managing and scaling containers.
 
 #### Nginx
 Nginx is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
+
 #### Nginx Diagram
 
 ## Application
 
 ### Front End
-
+![Front End](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/front-end.jpg)
 ### Back End
 
 ### Database
