@@ -50,4 +50,12 @@ pipeline{
             }
         }
     }
+    post{
+        always{
+            jacoco classPattern: 'spring-petclinic-rest/target/classes', 
+            exclusionPattern: 'spring-petclinic-rest/target/test-calsses', 
+            execPattern: 'spring-petclinic-rest/target/jacoco.exec', 
+            runAlways: true
+        }
+    }
 }   
