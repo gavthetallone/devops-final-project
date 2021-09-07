@@ -74,8 +74,10 @@ Deploying the application using kubernetes and the script "kubectl apply -f ./k8
 
 ### Infrastructure Diagram
 
+#### Initial
 ![Initial Infrastructure](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/infrastructurev1.0.png)
 
+#### Final
 ![Final Infrastructure](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/servicesv1.0.png)
 
 
@@ -102,12 +104,6 @@ Nginx is a web server which can also be used as a reverse proxy, load balancer, 
 ### Back End
 
 ### Database
-
-## Testing
-
-### Unit Test
-
-### End-to-End Test
 
 ## Improvements
 
