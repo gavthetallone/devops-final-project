@@ -3,6 +3,13 @@ pipeline{
     agent any
     
     stages{
+        stage('install terraform'){
+            steps{
+                sh '''
+                    bash ./scripts/terraform-install.sh
+                    '''
+            }
+        }
         stage('install maven'){
             steps{
                 sh '''
