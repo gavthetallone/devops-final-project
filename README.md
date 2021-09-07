@@ -1,4 +1,4 @@
-# devops-final-project
+# Devops Final Project
 
 ## Planning
 
@@ -95,19 +95,17 @@ Kubernetes is an open-source orchestration software for deploying, managing and 
 #### Nginx
 Nginx is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache.
 
-#### Nginx Diagram
-
 ## Application
 
 ### Front End
 ![Front End](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/front-end.jpg)
+
 ### Back End
+This backend of the Spring Petclinic application only provides a REST API. There is no UI. The application is a Angular front-end application which consumes the REST API.
 
-### Database
+## Revisits
 
-## Improvements
-
-* Stand alone database
+Using a Stand alone database
 
 ## Author 
 
