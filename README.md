@@ -37,6 +37,10 @@ Risk Assessment:
 
 ### Stages
 
+#### Install Terraform
+
+First a check is down to see if terraform is installed or not. If not a install script is run.
+
 #### Install Maven
 Making sure maven is installed on the system to run the application and the tests
 
@@ -50,11 +54,19 @@ Using "mvn test" to run the tests which were provided for us, we also where also
 
 #### Login
 
+Logging into Azure Cloud
+
 #### ACR Login
+
+Using "az acr login" to login into the azure container registries
 
 #### Build and Push Containers
 
+docker building both front and back end of the applicationn then pushing the image to dockerhub.
+
 #### Deploy
+
+Deploying the application using kubernetes and the script "kubectl apply -f ./k8s/" 
 
 ### CICD Pipeline Diagram
 
