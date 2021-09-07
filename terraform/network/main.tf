@@ -57,11 +57,13 @@ resource "azurerm_network_security_group" "jumpbox" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+  lifecycle { create_before_destroy = true }
 }
 
 resource "azurerm_subnet_network_security_group_association" "jumpbox" {
   subnet_id                 = azurerm_subnet.jumpbox.id
   network_security_group_id = azurerm_network_security_group.jumpbox.id
+  
 }
 
 resource "azurerm_subnet_network_security_group_association" "jenkins" {
@@ -85,4 +87,5 @@ resource "azurerm_network_security_group" "jenkins" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+  lifecycle { create_before_destroy = true }
 }
