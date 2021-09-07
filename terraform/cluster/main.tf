@@ -1,6 +1,6 @@
 resource "azurerm_kubernetes_cluster" "cluster" {
   name                = "cluster-aks1"
-  location            = var.location
+  location            = "West Europe"
   resource_group_name = var.group_name
   dns_prefix          = "exampleaks1"
 
