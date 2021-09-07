@@ -3,6 +3,20 @@ pipeline{
     agent any
     
     stages{
+        stage('install maven'){
+            steps{
+                sh '''
+                    bash ./scripts/mvnw-install.sh
+                    '''
+            }
+        }
+        stage('testing'){
+            steps{
+                sh '''
+                    bash ./scripts/testing.sh
+                    '''
+            }
+        }
         stage('login'){
             steps{
                 sh '''
