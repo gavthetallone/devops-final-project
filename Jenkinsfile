@@ -8,7 +8,7 @@ pipeline{
                 sh '''
                     
                     DIRECTORY=usr/local/bin/terraform
-                    ![ -f "$DIRECTORY" ] && \
+                    ![ -d "$DIRECTORY" ] && \
                     bash ./scripts/terraform-install.sh
                     '''
             }
