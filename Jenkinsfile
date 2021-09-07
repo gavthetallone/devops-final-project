@@ -3,6 +3,16 @@ pipeline{
     agent any
     
     stages{
+        stage('install terraform'){
+            steps{
+                sh '''
+                    
+                    DIRECTORY=/usr/local/bin/terraform
+                    if [ ! -d "$DIRECTORY" ]; then \
+                    bash ./scripts/terraform-install.sh;fi
+                    '''
+            }
+        }
         stage('install maven'){
             steps{
                 sh '''
