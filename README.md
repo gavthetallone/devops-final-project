@@ -70,7 +70,7 @@ Deploying the application using kubernetes and the script "kubectl apply -f ./k8
 
 ### CICD Pipeline Diagram
 
-![Pipeline Diagram]()
+![Pipeline Diagram](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/pipeline%20diagram.jpg)
 
 ### Infrastructure Diagram
 
