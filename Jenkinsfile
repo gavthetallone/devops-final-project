@@ -64,6 +64,8 @@ pipeline{
             '80, 0, 0', onlyStable:
             false, sourceEncoding: 'ASCII',
             zoomCoverageChart: false
+            }
         }
+
     }
 }   
