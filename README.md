@@ -29,12 +29,7 @@ Using Jira we were able to split up all the Issues into smaller workable steps w
 ### Risk Assessment
 
 Risk Assessment:  
-![Risk Assessment]()
-
-### Test Plans
-
-Test Plans:  
-![Test Plans]()
+![Initial Risk Assessment](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/1st%20risk.jpg)
 
 ## Continous Deployment and Intergration
 
@@ -42,13 +37,24 @@ Test Plans:
 
 ### Stages
 
-#### Stage 1
+#### Install Maven
+Making sure maven is installed on the system to run the application and the tests
 
-#### Stage 2
+#### Testing
 
-#### Stage 3
+![Unit Test](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/tests.jpg)
 
-#### Stage 4
+Using "mvn test" to run the tests which were provided for us, we also where also to produce a cobertura report which showed the coverage of the tests.
+
+![Cobertura Report](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/cobertura%20report.jpg)
+
+#### Login
+
+#### ACR Login
+
+#### Build and Push Containers
+
+#### Deploy
 
 ### CICD Pipeline Diagram
 
