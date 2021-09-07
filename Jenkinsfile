@@ -6,6 +6,9 @@ pipeline{
         stage('install terraform'){
             steps{
                 sh '''
+                    
+                    FILE=usr/local/bin/terraform
+                    ![ -f "$FILE" ] && \
                     bash ./scripts/terraform-install.sh
                     '''
             }
