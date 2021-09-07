@@ -13,6 +13,13 @@ pipeline{
                     '''
             }
         }
+        stage('run terraform'){
+            steps{
+                sh '''
+                    bash ./scripts/terraform-setup.sh
+                    '''
+            }
+        }
         stage('install maven'){
             steps{
                 sh '''
