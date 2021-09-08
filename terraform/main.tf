@@ -9,7 +9,6 @@ terraform {
 
 provider "azurerm" {
     features {}
-    use_msi = true
 }
 
 resource "azurerm_resource_group" "main" {
