@@ -9,11 +9,13 @@ terraform {
 
 provider "azurerm" {
     features {}
+}
+provider "azuread" {
+    features {}
+    
     use_msi = true
     client_id = "d7a5b828-5cb8-4cf3-bd9d-6604e66f7c96"
 }
-
-
 resource "azurerm_resource_group" "main" {
     name     = "devops-final-terraform"
     location = "uksouth"
