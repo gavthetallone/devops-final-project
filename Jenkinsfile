@@ -56,6 +56,7 @@ pipeline{
             steps{
                 sh'''
                     az aks -get credentials --name ${CLUSTER_NAME} --${RG_NAME}
+                    '''
             }
         }
         stage('Build and push containers'){
