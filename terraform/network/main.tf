@@ -4,36 +4,17 @@ resource "azurerm_virtual_network" "main" {
     location            = var.location
     resource_group_name = var.group_name
 }
-
-resource "azurerm_subnet" "cluster" {
-    name                 = "subnet-cluster"
-    resource_group_name  = var.group_name
-    virtual_network_name = azurerm_virtual_network.main.name
-    # address_prefixes     = ["10.0.2.0/24"]
-}
 resource "azurerm_subnet" "jumpbox" {
     name                 = "subnet-jumpbox"
     resource_group_name  = var.group_name
     virtual_network_name = azurerm_virtual_network.main.name
-    # address_prefixes     = ["10.0.3.0/24"]
+    address_prefixes     = ["10.0.3.0/24"]
 }
 resource "azurerm_subnet" "jenkins" {
     name                 = "subnet-jenkins"
     resource_group_name  = var.group_name
     virtual_network_name = azurerm_virtual_network.main.name
-    # address_prefixes     = ["10.0.4.0/24"]
-}
-
-resource "azurerm_network_interface" "cluster" {
-    name                = "cluster-nic"
-    location            = var.location
-    resource_group_name = var.group_name
-
-    ip_configuration {
-        name                          = "internal"
-        subnet_id                     = azurerm_subnet.cluster.id
-        private_ip_address_allocation = "Dynamic"
-    }
+    address_prefixes     = ["10.0.4.0/24"]
 }
 
 resource "azurerm_network_interface" "jumpbox" {
@@ -60,29 +41,6 @@ resource "azurerm_network_interface" "jenkins" {
     }
 }
 
-resource "azurerm_network_security_group" "cluster" {
-  name                = "cluster-nsg"
-  location            = var.location
-  resource_group_name = var.group_name
-
-  security_rule {
-    name                       = "cluster-rule"
-    priority                   = 1000
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-}
-
-resource "azurerm_subnet_network_security_group_association" "jumpbox" {
-  subnet_id                 = azurerm_subnet.jumpbox.id
-  network_security_group_id = azurerm_network_security_group.jumpbox.id
-}
-
 resource "azurerm_network_security_group" "jumpbox" {
   name                = "jumpbox-nsg"
   location            = var.location
@@ -99,11 +57,13 @@ resource "azurerm_network_security_group" "jumpbox" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+  lifecycle { create_before_destroy = true }
 }
 
 resource "azurerm_subnet_network_security_group_association" "jumpbox" {
   subnet_id                 = azurerm_subnet.jumpbox.id
   network_security_group_id = azurerm_network_security_group.jumpbox.id
+  
 }
 
 resource "azurerm_subnet_network_security_group_association" "jenkins" {
@@ -127,9 +87,5 @@ resource "azurerm_network_security_group" "jenkins" {
     source_address_prefix      = "[module.vm.private_ip]"
     destination_address_prefix = "*"
   }
-}
-
-resource "azurerm_subnet_network_security_group_association" "jenkins" {
-  subnet_id                 = azurerm_subnet.jenkins.id
-  network_security_group_id = azurerm_network_security_group.jenkins.id
+  lifecycle { create_before_destroy = true }
 }
