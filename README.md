@@ -22,14 +22,14 @@ What tools will work for you best? For example: Terraform, Kubernetes, Ansible e
 ### Project Requirements
 
 Project Requirements:  
-![Project-Requirements](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/project%20requirements.jpg)
+![Project-Requirements](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/project%20requirements.jpg)
 
 Using Jira we were able to split up all the Issues into smaller workable steps which we slipt up evenly.
 
 ### Risk Assessment
 
 Risk Assessment:  
-![Initial Risk Assessment](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/1st%20risk.jpg)
+![Initial Risk Assessment](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/1st%20risk.jpg)
 
 ## Continous Deployment and Intergration
 
@@ -46,11 +46,11 @@ Making sure maven is installed on the system to run the application and the test
 
 #### Testing
 
-![Unit Test](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/tests.jpg)
+![Unit Test](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/tests.jpg)
 
 Using "mvn test" to run the tests which were provided for us, we also where also to produce a cobertura report which showed the coverage of the tests.
 
-![Cobertura Report](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/cobertura%20report.jpg)
+![Cobertura Report](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/cobertura%20report.jpg)
 
 #### Login
 
@@ -70,15 +70,15 @@ Deploying the application using kubernetes and the script "kubectl apply -f ./k8
 
 ### CICD Pipeline Diagram
 
-![Pipeline Diagram](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/pipeline%20diagram.jpg)
+![Pipeline Diagram](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/pipeline%20diagram.jpg)
 
 ### Infrastructure Diagram
 
 #### Initial
-![Initial Infrastructure](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/infrastructurev1.0.png)
+![Initial Infrastructure](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/infrastructurev1.0.png)
 
 #### Final
-![Final Infrastructure](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/servicesv1.0.png)
+![Final Infrastructure](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/servicesv1.0.png)
 
 
 ### Components in Detail
@@ -98,7 +98,7 @@ Nginx is a web server which can also be used as a reverse proxy, load balancer, 
 ## Application
 
 ### Front End
-![Front End](https://raw.githubusercontent.com/gavthetallone/devops-final-project/featureTCFP-34/diagrams/front-end.jpg)
+![Front End](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/front-end.jpg)
 
 ### Back End
 This backend of the Spring Petclinic application only provides a REST API. There is no UI. The application is a Angular front-end application which consumes the REST API.
