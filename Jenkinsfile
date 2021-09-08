@@ -24,7 +24,7 @@ pipeline{
         stage('aks auth'){
             steps{
                 sh'''
-                    az aks get-credentials --name ${CLUSTER_NAME} --${RG_NAME}
+                    az aks get-credentials --name ${CLUSTER_NAME} --resource-group ${RG_NAME}
                     '''
             }
         }
