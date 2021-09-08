@@ -6,7 +6,7 @@ data:
   default.conf: | # in YAML syntax, | indicates a multi-line string
     server {
       listen 80;
-        location /(petclinic)/ {
+        location / {
           proxy_pass http://frontend:8080;
         }
         location /petclinic/api/ {
