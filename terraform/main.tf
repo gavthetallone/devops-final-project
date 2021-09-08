@@ -9,7 +9,11 @@ terraform {
 
 provider "azurerm" {
     features {}
+    subscription_id = "36391976-a17c-41d1-bd4f-1661b1ba317c"
+    client_id="7a1f2fd6-3069-41a0-acd1-354305761e34"
+    tenant_id="e66f54dc-192f-441b-8956-cb18dedc435d"
 }
+
 
 resource "azurerm_resource_group" "main" {
     name     = "devops-final-terraform"
