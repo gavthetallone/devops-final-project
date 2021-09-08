@@ -34,8 +34,8 @@ pipeline{
         stage('run terraform'){
             steps{
                 sh '''
-                    export ${ARM_SUBSCRIPTION_ID}
-                    export ${ARM_TENANT_ID}
+                    export ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
+                    export ARM_TENANT_ID=${ARM_TENANT_ID}
                     bash ./scripts/terraform-setup.sh
 
                     '''
