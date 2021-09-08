@@ -53,7 +53,7 @@ resource "azurerm_network_security_group" "jumpbox" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "*"
+    destination_port_range     = "22"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
@@ -83,8 +83,8 @@ resource "azurerm_network_security_group" "jenkins" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "[module.vm.private_ip]"
     destination_address_prefix = "*"
   }
   lifecycle { create_before_destroy = true }
