@@ -11,9 +11,7 @@ pipeline{
             steps{
                 sh '''
                     
-                    DIRECTORY=/usr/local/bin/terraform
-                    if [ ! -d "$DIRECTORY" ]; then \
-                    bash ./scripts/terraform-install.sh;fi
+                    bash ./scripts/terraform-install.sh
                     '''
             }
         }
