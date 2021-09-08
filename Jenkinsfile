@@ -7,6 +7,27 @@ pipeline{
         RG_NAME=credentials('RG_NAME')
         }
     stages{
+        stage('login'){
+            steps{
+                sh '''
+                    az login --identity
+                    '''
+            }
+        }
+        stage('acr login'){
+            steps{
+                sh'''
+                    az acr login --name ${ACR_LOGIN_NAME}
+                    '''
+            }
+        }
+        stage('aks auth'){
+            steps{
+                sh'''
+                    az aks -get credentials --name ${CLUSTER_NAME} --${RG_NAME}
+                    '''
+            }
+        }
         stage('install terraform'){
             steps{
                 sh '''
@@ -33,27 +54,6 @@ pipeline{
             steps{
                 sh '''
                     bash ./scripts/testing.sh
-                    '''
-            }
-        }
-        stage('login'){
-            steps{
-                sh '''
-                    az login --identity
-                    '''
-            }
-        }
-        stage('acr login'){
-            steps{
-                sh'''
-                    az acr login --name ${ACR_LOGIN_NAME}
-                    '''
-            }
-        }
-        stage('aks auth'){
-            steps{
-                sh'''
-                    az aks -get credentials --name ${CLUSTER_NAME} --${RG_NAME}
                     '''
             }
         }
