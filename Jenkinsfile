@@ -59,6 +59,7 @@ pipeline{
             steps{
                 sh'''
                     az aks get-credentials --name cluster-aks1 --resource-group devops-final-terraform
+                    az aks update -n cluster-aks1 -g devops-final-terraform --attach-acr callistoreg
                     '''
             }
         }
