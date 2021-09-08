@@ -21,13 +21,6 @@ pipeline{
                     '''
             }
         }
-        stage('aks auth'){
-            steps{
-                sh'''
-                    az aks get-credentials --name ${CLUSTER_NAME} --resource-group ${RG_NAME}
-                    '''
-            }
-        }
         stage('install terraform'){
             steps{
                 sh '''
@@ -54,6 +47,13 @@ pipeline{
             steps{
                 sh '''
                     bash ./scripts/testing.sh
+                    '''
+            }
+        }
+        stage('aks auth'){
+            steps{
+                sh'''
+                    az aks get-credentials --name ${CLUSTER_NAME} --resource-group ${RG_NAME}
                     '''
             }
         }
