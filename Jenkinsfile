@@ -5,6 +5,8 @@ pipeline{
         ACR_LOGIN_NAME=credentials('ACR_LOGIN_NAME')
         CLUSTER_NAME=credentials('CLUSTER_NAME')
         RG_NAME=credentials('RG_NAME')
+        ARM_TENANT_ID=credentials('ARM_TENANT_ID')
+        ARM_SUBSCRIPTION_ID=credentials('ARM_SUBSCRIPTION_ID')
         }
     stages{
         stage('login'){
@@ -32,7 +34,10 @@ pipeline{
         stage('run terraform'){
             steps{
                 sh '''
+                    export ${ARM_SUBSCRIPTION_ID}
+                    export ${ARM_TENANT_ID}
                     bash ./scripts/terraform-setup.sh
+
                     '''
             }
         }
