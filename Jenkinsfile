@@ -61,11 +61,11 @@ pipeline{
         stage('Build and push containers'){
             steps{
                 sh'''
-                    docker build -t ${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-angular:latest ./spring-petclinic-angular/
-                    docker push ${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-angular:latest
+                    docker build -t "${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-angular:latest ./spring-petclinic-angular/"
+                    docker push "${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-angular:latest"
 
-                    docker build -t ${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-rest:latest ./spring-petclinic-rest/
-                    docker push ${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-rest:latest
+                    docker build -t "${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-rest:latest ./spring-petclinic-rest/"
+                    docker push "${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-rest:latest"
                     '''
             }
         }
