@@ -1,7 +1,11 @@
 pipeline{
 
     agent any
-    
+    environment{
+        ACR_LOGIN_NAME=credentials('ACR_LOGIN_NAME')
+        CLUSTER_NAME=credentials('CLUSTER_NAME')
+        RG_NAME=credentials('RG_NAME')
+        }
     stages{
         stage('install terraform'){
             steps{
@@ -44,18 +48,24 @@ pipeline{
         stage('acr login'){
             steps{
                 sh'''
-                    az acr login --name callistoreg
+                    az acr login --name ${ACR_LOGIN_NAME}
                     '''
+            }
+        }
+        stage('aks auth'){
+            steps{
+                sh'''
+                    az aks -get credentials --name ${CLUSTER_NAME} --${RG_NAME}
             }
         }
         stage('Build and push containers'){
             steps{
                 sh'''
-                    docker build -t callistoreg.azurecr.io/spring-petclinic-angular:latest ./spring-petclinic-angular/
-                    docker push callistoreg.azurecr.io/spring-petclinic-angular:latest
+                    docker build -t ${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-angular:latest ./spring-petclinic-angular/
+                    docker push ${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-angular:latest
 
-                    docker build -t callistoreg.azurecr.io/spring-petclinic-rest:latest ./spring-petclinic-rest/
-                    docker push callistoreg.azurecr.io/spring-petclinic-rest:latest
+                    docker build -t ${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-rest:latest ./spring-petclinic-rest/
+                    docker push ${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-rest:latest
                     '''
             }
         }
