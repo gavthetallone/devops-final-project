@@ -1,5 +1,4 @@
 cd terraform/
 terraform init
-terraform plan -out=tfplan
-terraform apply tfplan
+terraform apply -auto-approve
 cd .. 

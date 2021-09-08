@@ -11,7 +11,6 @@ provider "azurerm" {
     features {}
     use_msi = true
 }
-
 resource "azurerm_resource_group" "main" {
     name     = "devops-final-terraform"
     location = "uksouth"

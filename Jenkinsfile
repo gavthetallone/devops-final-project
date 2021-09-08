@@ -5,6 +5,8 @@ pipeline{
         ACR_LOGIN_NAME=credentials('ACR_LOGIN_NAME')
         CLUSTER_NAME=credentials('CLUSTER_NAME')
         RG_NAME=credentials('RG_NAME')
+        ARM_TENANT_ID=credentials('ARM_TENANT_ID')
+        ARM_SUBSCRIPTION_ID=credentials('ARM_SUBSCRIPTION_ID')
         }
     stages{
         stage('login'){
@@ -32,7 +34,10 @@ pipeline{
         stage('run terraform'){
             steps{
                 sh '''
+                    export ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
+                    export ARM_TENANT_ID=${ARM_TENANT_ID}
                     bash ./scripts/terraform-setup.sh
+
                     '''
             }
         }
@@ -53,18 +58,18 @@ pipeline{
         stage('aks auth'){
             steps{
                 sh'''
-                    az aks get-credentials --name ${CLUSTER_NAME} --resource-group ${RG_NAME}
+                    az aks get-credentials --name cluster-aks1 --resource-group devops-final-terraform
                     '''
             }
         }
         stage('Build and push containers'){
             steps{
                 sh'''
-                    docker build -t "${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-angular:latest ./spring-petclinic-angular/"
-                    docker push "${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-angular:latest"
+                    docker build -t "callistoreg.azurecr.io/spring-petclinic-angular:latest" ./spring-petclinic-angular/
+                    docker push "callistoreg.azurecr.io/spring-petclinic-angular:latest"
 
-                    docker build -t "${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-rest:latest ./spring-petclinic-rest/"
-                    docker push "${ACR_LOGIN_NAME}.azurecr.io/spring-petclinic-rest:latest"
+                    docker build -t "callistoreg.azurecr.io/spring-petclinic-rest:latest" ./spring-petclinic-rest/
+                    docker push "callistoreg.azurecr.io/spring-petclinic-rest:latest"
                     '''
             }
         }
