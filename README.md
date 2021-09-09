@@ -101,11 +101,14 @@ Nginx is a web server which can also be used as a reverse proxy, load balancer, 
 ![Front End](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/front-end.jpg)
 
 ### Back End
-This backend of the Spring Petclinic application only provides a REST API. There is no UI. The application is a Angular front-end application which consumes the REST API.
+This backend of the Spring Petclinic application only provides a REST API. There is no UI. The application is a Angular front-end application which consumes the REST API. This includes the inbuilt database which will send the information to the load balancer.
 
 ## Revisits
 
-Using a Stand alone database
+### Using a Stand alone database
+Switching to a stand alone database meant storing the data outside the application instead of the in the back end. We did it by adding a MySQL edatabase on azure and allowing the backend to communicate to the stand alone database. By following the instructions which are provided in the readme for the backend.
+
+
 
 ## Author 
 
