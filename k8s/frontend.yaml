@@ -18,6 +18,7 @@ metadata:
   labels:
     app: frontend     
 spec:
+  replicas: 3
   containers:
   - name: frontend
     image: callistoreg.azurecr.io/spring-petclinic-angular:latest
