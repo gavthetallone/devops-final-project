@@ -35,14 +35,30 @@ Risk Assessment:
 
 ### Jenkins Pipline
 
+![Cobertura Report](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/jenkins.jpg)
+
 ### Stages
+
+#### Login
+
+Logging into both azure and ACR are the first steps which sets up the rest of the pipeline.
 
 #### Install Terraform
 
-First a check is down to see if terraform is installed or not. If not a install script is run.
+First a check is down to see if terraform is installed or not. If not a install script is run. If terraform is installed then this stage will be skipped.
+
+#### Run Terraform
+
+The terraform files are initialised, then planned and applied. This will build all of the infrastructure for the application to run including:
+                            * Resource Group
+                            * Vnet
+                            * 3 subnets
+                            * Jumpbox
+                            * Cluster
+However if already built then stage will be skipped.
 
 #### Install Maven
-Making sure maven is installed on the system to run the application and the tests
+Making sure maven is installed on the system to run the application and the tests.
 
 #### Testing
 
@@ -52,17 +68,9 @@ Using "mvn test" to run the tests which were provided for us, we also where also
 
 ![Cobertura Report](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/cobertura%20report.jpg)
 
-#### Login
-
-Logging into Azure Cloud
-
-#### ACR Login
-
-Using "az acr login" to login into the azure container registries
-
 #### Build and Push Containers
 
-docker building both front and back end of the applicationn then pushing the image to dockerhub.
+Docker building both front and back end of the applicationn then pushing the image to Azure Container Registry.
 
 #### Deploy
 
@@ -83,6 +91,11 @@ Deploying the application using kubernetes and the script "kubectl apply -f ./k8
 
 ### Components in Detail
 
+#### Azure Container Registry
+
+Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. By using Docker commands to push a container image into the registry, and finally pull and run the image from your registry
+
+
 #### Docker
 Docker is a software platform for building applications based on containers and lightweight execution environments that make shared use of the operating system kernel but otherwise run in isolation from one another.
 
@@ -101,11 +114,14 @@ Nginx is a web server which can also be used as a reverse proxy, load balancer, 
 ![Front End](https://raw.githubusercontent.com/gavthetallone/devops-final-project/dev/diagrams/front-end.jpg)
 
 ### Back End
-This backend of the Spring Petclinic application only provides a REST API. There is no UI. The application is a Angular front-end application which consumes the REST API.
+This backend of the Spring Petclinic application only provides a REST API. There is no UI. The application is a Angular front-end application which consumes the REST API. This includes the inbuilt database which will send the information to the load balancer.
 
 ## Revisits
 
-Using a Stand alone database
+### Using a Stand alone database
+Switching to a stand alone database meant storing the data outside the application instead of the in the back end. We did it by adding a MySQL edatabase on azure and allowing the backend to communicate to the stand alone database. By following the instructions which are provided in the readme for the backend.
+
+
 
 ## Author 
 
